@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Admin Dashboard</title>
+    <link rel="stylesheet" href="/Admin/css/Dashboard.css">
+    <script defer src="/Admin/js/Dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Charts -->
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>FitTrack Admin</h2>
+    <ul>
+        <li><a href="/Admin/nav/Dashboard.html" class="active">🏠 Dashboard</a></li>
+        <li><a href="/Admin/nav/users.html">👤 Users</a></li>
+        <li><a href="/Admin/nav/workout.html">🏋️ Workouts</a></li>
+        <li><a href="/Admin/nav/Analytics.html">📊 Analytics</a></li>
+        <li><a href="/Admin/nav/logout.html">🚪 Logout</a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    
+    <!-- Navbar -->
+    <nav class="top-navbar">
+        <h1>Admin Dashboard</h1>
+        <div class="nav-icons">
+            <span>🔔</span>
+            <span>👤 Admin</span>
+        </div>
+    </nav>
+
+    <!-- Dashboard Stats -->
+    <section class="dashboard-stats">
+        <div class="stat-card">
+            <h3>👥 Users</h3>
+            <p id="totalUsers">1200</p>
+        </div>
+        <div class="stat-card">
+            <h3>🏋️ Workouts</h3>
+            <p id="totalWorkouts">350</p>
+        </div>
+        <div class="stat-card">
+            <h3>💰 Revenue</h3>
+            <p id="totalRevenue">₹1,50,000</p>
+        </div>
+        <div class="stat-card">
+            <h3>📅 Subscriptions</h3>
+            <p id="totalSubscriptions">450</p>
+        </div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="chart-section">
+        <canvas id="revenueChart"></canvas>
+    </section>
+
+</div>
+
+</body>
+</html>

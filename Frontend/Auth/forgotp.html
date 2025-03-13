@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Forgot Password</title>
+    <link rel="stylesheet" href="/Frontend/css/forgotp.css">
+    <script defer src="/Frontend/js/forgotp.js"></script>
+</head>
+<body>
+
+<div class="forgot-password-container">
+    <form class="forgot-password-form" id="forgotPasswordForm">
+        <h2>Forgot Password?</h2>
+        <p>Enter your email address and we'll send you a link to reset your password.</p>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <button type="submit" class="btn">Send Reset Link</button>
+
+        <p class="back-to-login">Remember your password? <a href="/Frontend/Auth/login.html">Login</a></p>
+        
+        <p id="resetMessage"></p>
+    </form>
+</div>
+
+</body>
+</html>

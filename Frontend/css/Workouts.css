@@ -1,0 +1,101 @@
+/* Header */
+.header {
+    text-align: center;
+    background: linear-gradient(135deg, #00c853, #009624);
+    color: white;
+    padding: 50px 10%;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2rem;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.filter-btn {
+    background: #00c853;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #009624;
+}
+
+/* Workouts Section */
+.workouts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px 10%;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+.workout-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.workout-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.workout-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.workout-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.workout-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 40px 5%;
+    }
+
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .workouts {
+        padding: 40px 5%;
+    }
+
+    .workout-card img {
+        height: 180px;
+    }
+}

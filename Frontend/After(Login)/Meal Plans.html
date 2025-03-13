@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Meal Plans</title>
+    <link rel="stylesheet" href="/Frontend/css/Meal Plans.css">
+    <script defer src="/Frontend/js/Meal Plans.js"></script>
+</head>
+<body>
+
+<div class="dashboard-container">
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <h2>FitTrack</h2>
+        <ul>
+            <li><a href="dashboard.html">🏠 Dashboard</a></li>
+            <li><a href="workouts.html">🏋️ Workout Plans</a></li>
+            <li><a href="progress.html">📊 Progress</a></li>
+            <li class="active"><a href="/Frontend/After(Login)/Meal Plans.html">🍎 Meal Plans</a></li>
+            <li><a href="/Frontend/After(Login)/Settings.html">⚙️ Settings</a></li>
+            <li><a href="/Frontend/Auth/logout.html">🚪 Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>My Meal Plans</h1>
+            <p>Stay on track with a healthy diet for your fitness goals.</p>
+        </div>
+
+        <!-- Meal Categories -->
+        <div class="meal-categories">
+            <button class="meal-btn" data-category="breakfast">🍳 Breakfast</button>
+            <button class="meal-btn" data-category="lunch">🥗 Lunch</button>
+            <button class="meal-btn" data-category="dinner">🍛 Dinner</button>
+            <button class="meal-btn" data-category="snacks">🍌 Snacks</button>
+        </div>
+
+        <!-- Meal Plans -->
+        <div class="meal-plans" id="mealPlans">
+            <!-- Meals will be dynamically added here -->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

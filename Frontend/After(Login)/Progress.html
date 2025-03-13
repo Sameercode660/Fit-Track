@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Progress</title>
+    <link rel="stylesheet" href="/Frontend/css/Progress.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="/Frontend/After(Login)/Progress.html"></script>
+</head>
+<body>
+
+<div class="dashboard-container">
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <h2>FitTrack</h2>
+        <ul>
+            <li><a href="/Frontend/After(Login)/Dashboard.html">🏠 Dashboard</a></li>
+            <li><a href="/Frontend/After(Login)/Workout Plans.html">🏋️ Workout Plans</a></li>
+            <li class="active"><a href="/Frontend/After(Login)/Progress.html">📊 Progress</a></li>
+            <li><a href="/Frontend/After(Login)/Meal Plans.html">🍎 Meal Plans</a></li>
+            <li><a href="/Frontend/After(Login)/Settings.html">⚙️ Settings</a></li>
+            <li><a href="/Frontend/Auth/logout.html">🚪 Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>My Progress</h1>
+        </div>
+
+        <!-- Progress Charts -->
+        <div class="progress-charts">
+            <div class="chart-container">
+                <h3>Weight Progress</h3>
+                <canvas id="weightChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>Calories Burned</h3>
+                <canvas id="caloriesChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Workout History -->
+        <div class="workout-history">
+            <h2>Workout History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Workout</th>
+                        <th>Duration</th>
+                        <th>Calories Burned</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTable">
+                    <tr>
+                        <td>March 10, 2025</td>
+                        <td>Running</td>
+                        <td>30 min</td>
+                        <td>300 kcal</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Goal Tracking -->
+        <div class="goal-tracking">
+            <h2>My Goals</h2>
+            <div class="goal">
+                <p>🏋️ Increase Strength</p>
+                <progress value="50" max="100"></progress>
+            </div>
+            <div class="goal">
+                <p>🏃 Improve Stamina</p>
+                <progress value="75" max="100"></progress>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

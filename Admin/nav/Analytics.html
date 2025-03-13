@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Admin - Analytics</title>
+    <link rel="stylesheet" href="/Admin/css/Analytics.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="/Admin/js/Analytics.js"></script>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>FitTrack Admin</h2>
+    <ul>
+        <li><a href="/Admin/nav/Dashboard.html">🏠 Dashboard</a></li>
+        <li><a href="/Admin/nav/users.html">👤 Users</a></li>
+        <li><a href="/Admin/nav/workout.html">🏋️ Workouts</a></li>
+        <li><a href="/Admin/nav/Analytics.html" class="active">📊 Analytics</a></li>
+        <li><a href="/Admin/nav/logout.html">🚪 Logout</a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    
+    <!-- Navbar -->
+    <nav class="top-navbar">
+        <h1>Analytics Dashboard</h1>
+        <div class="nav-icons">
+            <span>🔔</span>
+            <span>👤 Admin</span>
+        </div>
+    </nav>
+
+    <!-- Analytics Cards -->
+    <section class="analytics-cards">
+        <div class="card">
+            <h3>Total Users</h3>
+            <p id="totalUsers">0</p>
+        </div>
+        <div class="card">
+            <h3>Active Users</h3>
+            <p id="activeUsers">0</p>
+        </div>
+        <div class="card">
+            <h3>New Signups</h3>
+            <p id="newSignups">0</p>
+        </div>
+        <div class="card">
+            <h3>Workouts Completed</h3>
+            <p id="workoutsCompleted">0</p>
+        </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts">
+        <div class="chart-container">
+            <h3>User Growth</h3>
+            <canvas id="userGrowthChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Workout Trends</h3>
+            <canvas id="workoutTrendsChart"></canvas>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

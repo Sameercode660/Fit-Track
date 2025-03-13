@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Admin - Users</title>
+    <link rel="stylesheet" href="/Admin/css/users.css">
+    <script defer src="/Admin/js/users.js"></script>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>FitTrack Admin</h2>
+    <ul>
+        <li><a href="/Admin/nav/Dashboard.html">🏠 Dashboard</a></li>
+        <li><a href="/Admin/nav/users.html" class="active">👤 Users</a></li>
+        <li><a href="/Admin/nav/workout.html">🏋️ Workouts</a></li>
+        <li><a href="/Admin/nav/Analytics.html">📊 Analytics</a></li>
+        <li><a href="/Admin/nav/logout.html">🚪 Logout</a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    
+    <!-- Navbar -->
+    <nav class="top-navbar">
+        <h1>Users Management</h1>
+        <div class="nav-icons">
+            <span>🔔</span>
+            <span>👤 Admin</span>
+        </div>
+    </nav>
+
+    <!-- Add User Form -->
+    <section class="add-user">
+        <h2>Add New User</h2>
+        <form id="userForm">
+            <input type="text" id="userName" placeholder="Full Name" required>
+            <input type="email" id="userEmail" placeholder="Email" required>
+            <select id="userRole">
+                <option value="Member">Member</option>
+                <option value="Trainer">Trainer</option>
+                <option value="Admin">Admin</option>
+            </select>
+            <button type="submit">Add User</button>
+        </form>
+    </section>
+
+    <!-- Users List Table -->
+    <section class="user-table">
+        <h2>User List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userList">
+                <!-- Users will be dynamically added here -->
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+</body>
+</html>

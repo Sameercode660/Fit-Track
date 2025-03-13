@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Register</title>
+    <link rel="stylesheet" href="/Frontend/css/Register.css">
+    <script defer src="/Frontend/js/Register.js"></script>
+</head>
+<body>
+
+<div class="register-container">
+    <form class="register-form" id="registerForm">
+        <h2>Create an Account</h2>
+        <p>Join FitTrack and start your fitness journey today.</p>
+
+        <div class="input-group">
+            <input type="text" id="fullname" placeholder="Full Name" required>
+        </div>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-group password-container">
+            <input type="password" id="password" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword()">👁️</span>
+        </div>
+
+        <div class="input-group password-container">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <span class="toggle-password" onclick="toggleConfirmPassword()">👁️</span>
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+
+        <p class="login-link">Already have an account? <a href="/Frontend/Auth/login.html">Login</a></p>
+
+        <p id="registerMessage"></p>
+    </form>
+</div>
+
+</body>
+</html>

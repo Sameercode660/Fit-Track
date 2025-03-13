@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Workout Plans</title>
+    <link rel="stylesheet" href="/Frontend/css/Workout Plans.css">
+    <script defer src="/Frontend/js/Workout Plans.js"></script>
+</head>
+<body>
+
+<div class="dashboard-container">
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <h2>FitTrack</h2>
+        <ul>
+            <li><a href="/Frontend/After(Login)/Dashboard.html">🏠 Dashboard</a></li>
+            <li class="active"><a href="/Frontend/After(Login)/Workout Plans.html">🏋️ Workout Plans</a></li>
+            <li><a href="/Frontend/After(Login)/Progress.html">📊 Progress</a></li>
+            <li><a href="/Frontend/After(Login)/Meal Plans.html">🍎 Meal Plans</a></li>
+            <li><a href="/Frontend/After(Login)/Settings.html">⚙️ Settings</a></li>
+            <li><a href="/Frontend/Auth/logout.html">🚪 Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Workout Plans</h1>
+            <input type="text" id="searchWorkout" placeholder="Search workouts...">
+        </div>
+
+        <!-- Workout Categories -->
+        <div class="workout-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="cardio">🏃 Cardio</button>
+            <button class="filter-btn" data-filter="strength">💪 Strength</button>
+            <button class="filter-btn" data-filter="yoga">🧘 Yoga</button>
+        </div>
+
+        <!-- Workout List -->
+        <div class="workout-list">
+            <div class="workout-card" data-category="cardio">
+                <h3>🏃 Running</h3>
+                <p>Duration: 30 min | Difficulty: Medium</p>
+                <button class="start-btn">Start Workout</button>
+            </div>
+
+            <div class="workout-card" data-category="strength">
+                <h3>💪 Weight Lifting</h3>
+                <p>Duration: 45 min | Difficulty: Hard</p>
+                <button class="start-btn">Start Workout</button>
+            </div>
+
+            <div class="workout-card" data-category="yoga">
+                <h3>🧘 Morning Yoga</h3>
+                <p>Duration: 20 min | Difficulty: Easy</p>
+                <button class="start-btn">Start Workout</button>
+            </div>
+
+            <div class="workout-card" data-category="cardio">
+                <h3>🚴 Cycling</h3>
+                <p>Duration: 40 min | Difficulty: Medium</p>
+                <button class="start-btn">Start Workout</button>
+            </div>
+
+            <div class="workout-card" data-category="strength">
+                <h3>🏋️ Squats & Lunges</h3>
+                <p>Duration: 35 min | Difficulty: Hard</p>
+                <button class="start-btn">Start Workout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

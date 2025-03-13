@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Login</title>
+    <link rel="stylesheet" href="/Frontend/css/login.css">
+    <script defer src="/Frontend/js/login.js"></script>
+</head>
+<body>
+
+<div class="login-container">
+    <form class="login-form" id="loginForm">
+        <h2>Welcome Back!</h2>
+        <p>Login to continue your fitness journey.</p>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-group password-container">
+            <input type="password" id="password" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword()">👁️</span>
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+
+        <p class="forgot-password"><a href="/Frontend/Auth/forgotp.html">Forgot Password?</a></p>
+        <p class="signup-link">Don't have an account? <a href="/Frontend/Auth/Register.html">Sign Up</a></p>
+        
+        <p id="loginMessage"></p>
+    </form>
+</div>
+
+</body>
+</html>

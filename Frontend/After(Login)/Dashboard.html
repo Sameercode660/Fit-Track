@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Dashboard</title>
+    <link rel="stylesheet" href="/Frontend/css/Dashboard.css">
+    <script defer src="/Frontend/js/Dashboard.js"></script>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <h2>FitTrack</h2>
+            <ul>
+                <li class="active"><a href="/Frontend/After(Login)/Dashboard.html">🏠 Dashboard</a></li>
+                <li><a href="/Frontend/After(Login)/Workout Plans.html">🏋️ Workouts</a></li>
+                <li><a href="/Frontend/After(Login)/Progress.html">📊 Progress</a></li>
+                <li><a href="/Frontend/After(Login)/Meal Plans.html">🍎 Meal Plans</a></li>
+                <li><a href="/Frontend/After(Login)/Settings.html">⚙️ Settings</a></li>
+                <li><a href="/Frontend/Auth/logout.html">🚪 Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Dashboard Content -->
+        <div class="main-content">
+
+            <!-- User Greeting Section -->
+            <div class="welcome-section">
+                <h1>Welcome, <span id="username">User</span>! 👋</h1>
+                <p>Stay consistent and keep pushing towards your fitness goals!</p>
+            </div>
+
+            <!-- Fitness Stats -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>🏋️ Workouts Completed</h3>
+                    <p id="workoutCount">12</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🔥 Calories Burned</h3>
+                    <p id="caloriesBurned">3,250 kcal</p>
+                </div>
+                <div class="stat-card">
+                    <h3>📅 Active Days</h3>
+                    <p id="activeDays">15</p>
+                </div>
+            </div>
+
+            <!-- Workout Progress Section -->
+            <div class="progress-section">
+                <h2>Your Progress</h2>
+                <div class="progress-bar">
+                    <span class="progress" id="progress" style="width: 70%;">70%</span>
+                </div>
+            </div>
+
+            <!-- Upcoming Workouts -->
+            <div class="upcoming-workouts">
+                <h2>Upcoming Workouts</h2>
+                <ul id="workoutList">
+                    <li>🏃 Cardio - 30 min</li>
+                    <li>💪 Strength Training - 45 min</li>
+                    <li>🧘 Yoga - 20 min</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

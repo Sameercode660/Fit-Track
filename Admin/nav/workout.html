@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Admin - Workouts</title>
+    <link rel="stylesheet" href="/Admin/css/workout.css">
+    <script defer src="/Admin/js/workout.js"></script>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>FitTrack Admin</h2>
+    <ul>
+        <li><a href="/Admin/nav/Dashboard.html">🏠 Dashboard</a></li>
+        <li><a href="/Admin/nav/users.html">👤 Users</a></li>
+        <li><a href="/Admin/nav/workout.html" class="active">🏋️ Workouts</a></li>
+        <li><a href="/Admin/nav/Analytics.html">📊 Analytics</a></li>
+        <li><a href="/Admin/nav/logout.html">🚪 Logout</a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    
+    <!-- Navbar -->
+    <nav class="top-navbar">
+        <h1>Workout Management</h1>
+        <div class="nav-icons">
+            <span>🔔</span>
+            <span>👤 Admin</span>
+        </div>
+    </nav>
+
+    <!-- Add Workout Form -->
+    <section class="add-workout">
+        <h2>Add New Workout</h2>
+        <form id="workoutForm">
+            <input type="text" id="workoutName" placeholder="Workout Name" required>
+            <input type="text" id="workoutCategory" placeholder="Category (e.g., Cardio, Strength)" required>
+            <input type="number" id="workoutDuration" placeholder="Duration (mins)" required>
+            <button type="submit">Add Workout</button>
+        </form>
+    </section>
+
+    <!-- Workout List Table -->
+    <section class="workout-table">
+        <h2>Workout List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Workout Name</th>
+                    <th>Category</th>
+                    <th>Duration (mins)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="workoutList">
+                <!-- Workouts will be dynamically added here -->
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+</body>
+</html>
