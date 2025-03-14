@@ -10,7 +10,7 @@
 <body>
 
 <div class="forgot-password-container">
-    <form class="forgot-password-form" id="forgotPasswordForm">
+    <div class="forgot-password-form" id="forgotPasswordForm">
         <h2>Forgot Password?</h2>
         <p>Enter your email address and we'll send you a link to reset your password.</p>
 
@@ -18,13 +18,48 @@
             <input type="email" id="email" placeholder="Enter your email" required>
         </div>
 
-        <button type="submit" class="btn">Send Reset Link</button>
+        <button  class="btn">Send Reset Link</button>
 
         <p class="back-to-login">Remember your password? <a href="/Frontend/Auth/login.html">Login</a></p>
         
         <p id="resetMessage"></p>
-    </form>
+    </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const email = document.querySelector('#email')
+    const button = document.querySelector('.btn')
 
+    button.addEventListener('click', handleForgotPassword)
+
+    async function handleForgotPassword() {
+        try {
+            if(!email.value) {
+                alert('Field is empty')
+                return;
+            }
+
+            const data = {
+                email: email.value
+            }
+            button.innerHTML = 'Loading...'
+            const response = await axios.post('http://localhost:3000/api/auth/forgot-password', data)
+            button.innerHTML = 'Send Reset Link'
+
+            if(response.data.status) {
+                alert('Password has been sent to your email')
+                window.location.href = '/Frontend/Auth/login.html'
+            } else {
+                alert(response.data.message)
+            }
+        } catch (error) {
+            console.log(error)
+            alert('Unable to reset the password')
+        } finally {
+            button.innerHTML = 'Send Reset Link'
+        }
+
+    }
+</script>
 </body>
 </html>

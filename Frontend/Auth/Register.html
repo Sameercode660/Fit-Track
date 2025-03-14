@@ -1,44 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FitTrack - Register</title>
-    <link rel="stylesheet" href="/Frontend/css/Register.css">
+    <link rel="stylesheet" href="/Frontend/css/Register.css" />
     <script defer src="/Frontend/js/Register.js"></script>
-</head>
-<body>
-
-<div class="register-container">
-    <form class="register-form" id="registerForm">
+  </head>
+  <body>
+    <div class="register-container">
+      <div class="register-form" id="registerForm">
         <h2>Create an Account</h2>
         <p>Join FitTrack and start your fitness journey today.</p>
 
         <div class="input-group">
-            <input type="text" id="fullname" placeholder="Full Name" required>
+          <input type="text" id="fullname" placeholder="Full Name" required />
         </div>
 
         <div class="input-group">
-            <input type="email" id="email" placeholder="Email" required>
+          <input type="email" id="email" placeholder="Email" required />
         </div>
 
         <div class="input-group password-container">
-            <input type="password" id="password" placeholder="Password" required>
-            <span class="toggle-password" onclick="togglePassword()">👁️</span>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <span class="toggle-password" onclick="togglePassword()">👁️</span>
         </div>
 
         <div class="input-group password-container">
-            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-            <span class="toggle-password" onclick="toggleConfirmPassword()">👁️</span>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+          <span class="toggle-password" onclick="toggleConfirmPassword()"
+            >👁️</span
+          >
         </div>
 
-        <button type="submit" class="btn">Register</button>
+        <button class="btn">Register</button>
 
-        <p class="login-link">Already have an account? <a href="/Frontend/Auth/login.html">Login</a></p>
+        <p class="login-link">
+          Already have an account? <a href="/Frontend/Auth/login.html">Login</a>
+        </p>
 
         <p id="registerMessage"></p>
-    </form>
-</div>
+      </div>
+    </div>
 
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const fullName = document.querySelector("#fullname");
+      const email = document.querySelector("#email");
+      const password = document.querySelector("#password");
+      const confirmPassword = document.querySelector("#confirmPassword");
+      const button = document.querySelector(".btn");
+
+      button.addEventListener("click", handleSignup);
+
+      async function handleSignup() {
+        try {
+          if (
+            !fullName.value ||
+            !email.value ||
+            !password.value ||
+            !confirmPassword.value
+          ) {
+            alert("Anyone field is empty");
+            return;
+          }
+
+          if (password.value != confirmPassword.value) {
+            alert("password and confirm password must be same");
+            return;
+          }
+
+          const data = {
+            fullName: fullName.value,
+            email: email.value,
+            password: password.value,
+          };
+
+          button.innerHTML = "Loading...";
+          const response = await axios.post(
+            "http://localhost:3000/api/auth/signup",
+            data
+          );
+          button.innerHTML = "Register";
+
+          if (response.data.status) {
+            localStorage.setItem("id", response.data.data.id);
+            window.location.href = "/Frontend/Auth/otp-verification.html";
+          } else {
+            alert("Unable to resgiter user! try again");
+          }
+        } catch (error) {
+          console.log(error);
+          alert("Unable to signup");
+        } finally {
+          button.innerHTML = "Register";
+        }
+      }
+    </script>
+  </body>
 </html>

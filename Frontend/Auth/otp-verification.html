@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification</title>
+    <style>
+      :root {
+        --bg-color: #f3f3f3;
+        --text-color: #000;
+        --input-bg: #fff;
+        --input-border: #ccc;
+        --input-focus-border: #007bff;
+        --input-focus-shadow: rgba(0, 123, 255, 0.5);
+      }
+
+      [data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #fff;
+        --input-bg: #1e1e1e;
+        --input-border: #444;
+        --input-focus-border: #bb86fc;
+        --input-focus-shadow: rgba(187, 134, 252, 0.5);
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+      .otp-container {
+        display: flex;
+        gap: 10px;
+      }
+      .otp-container input {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        text-align: center;
+        border: 1px solid var(--input-border);
+        background-color: var(--input-bg);
+        color: var(--text-color);
+        border-radius: 5px;
+        outline: none;
+      }
+      .otp-container input:focus {
+        border-color: var(--input-focus-border);
+        box-shadow: 0 0 5px var(--input-focus-shadow);
+      }
+      .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        padding: 10px 15px;
+        background-color: var(--input-bg);
+        border: 1px solid var(--input-border);
+        border-radius: 5px;
+        color: var(--text-color);
+      }
+      h2 {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body data-theme="dark">
+    <button class="theme-toggle" id="theme-toggle">Switch to Light Mode</button>
+    <h2>OTP has been sent to your email, Please enter to verify</h2>
+    <div class="otp-container">
+      <input type="text" maxlength="1" id="otp1" />
+      <input type="text" maxlength="1" id="otp2" />
+      <input type="text" maxlength="1" id="otp3" />
+      <input type="text" maxlength="1" id="otp4" />
+      <input type="text" maxlength="1" id="otp5" />
+      <input type="text" maxlength="1" id="otp6" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const inputs = document.querySelectorAll(".otp-container input");
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Theme toggle functionality
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        body.setAttribute("data-theme", newTheme);
+        themeToggle.textContent =
+          newTheme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode";
+      });
+
+      inputs.forEach((input, index) => {
+        input.addEventListener("input", (e) => {
+          if (e.target.value.length === 1 && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          } else if (e.target.value.length === 0 && index > 0) {
+            inputs[index - 1].focus();
+          }
+        });
+
+        input.addEventListener("paste", (e) => {
+          const data = e.clipboardData.getData("text").slice(0, 6).split("");
+          inputs.forEach((input, idx) => {
+            input.value = data[idx] || "";
+          });
+          if (data.length === 6) sendOtp();
+        });
+      });
+
+      function getOtp() {
+        return Array.from(inputs)
+          .map((input) => input.value)
+          .join("");
+      }
+
+      function sendOtp() {
+        const otp = getOtp();
+        const data = {
+          id: localStorage.getItem("id"),
+          otp,
+        };
+
+        if (otp.length === 6) {
+          axios
+            .post("http://localhost:3000/api/auth/otp-verification", data)
+            .then((response) => {
+              alert("OTP Verified Successfully");
+              localStorage.setItem("id", response.data.data.id);
+              localStorage.setItem("name", response.data.data.fullName);
+              localStorage.setItem("email", response.data.data.email);
+              localStorage.setItem("isLogin", "true");
+              window.location.href = "/Frontend/index.html";
+            })
+            .catch((error) => {
+              console.error("Error verifying OTP:", error);
+              alert("Unable to verify! Enter again");
+            });
+        }
+      }
+
+      inputs[inputs.length - 1].addEventListener("input", sendOtp);
+    </script>
+  </body>
+</html>

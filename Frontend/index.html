@@ -1,244 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FitTrack - Fitness Workout Tracker</title>
-    <link rel="stylesheet" href="/Frontend/css/main.css">
+    <link rel="stylesheet" href="/Frontend/css/main.css" />
     <script defer src="/Frontend/js/main.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <div class="logo">FitTrack</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/Frontend/index.html">Home</a></li>
-                <li><a href="/Frontend/nav/Features.html">Features</a></li>
-                <li><a href="/Frontend/nav/Workouts.html">Workouts</a></li>
-                <li><a href="/Frontend/nav/Pricing .html">Pricing</a></li>
-                <li><a href="/Frontend/nav/Contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="/Frontend/Auth/login.html" class="cta-btn">Get Started</a>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <div class="logo">FitTrack</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/Frontend/index.html">Home</a></li>
+          <li><a href="/Frontend/nav/Features.html">Features</a></li>
+          <li><a href="/Frontend/nav/Workouts.html">Workouts</a></li>
+          <li><a href="/Frontend/nav/Pricing .html">Pricing</a></li>
+          <li><a href="/Frontend/nav/Contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="/Frontend/Auth/login.html" class="cta-btn get-started">
+          Get Started
+        </a>
+        <button href="/Frontend/Auth/login.html" class="cta-btn name-btn">Sameer</button>
+        <button href="/Frontend/Auth/login.html" class="cta-btn logout-btn">Logout</button>
+      </div>
+
+      <div class="menu-toggle"><i class="fas fa-bars"></i></div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Track Your Workouts.<br>Achieve Your <span>Fitness Goals</span>.</h1>
-            <p>The ultimate fitness tracker to monitor progress, set goals, and stay motivated.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn-primary">Start Tracking</a>
-                <a href="/Frontend/nav/Features.html" class="btn-secondary">Explore Features</a>
-            </div>
+      <div class="hero-content">
+        <h1>
+          Track Your Workouts.<br />Achieve Your <span>Fitness Goals</span>.
+        </h1>
+        <p>
+          The ultimate fitness tracker to monitor progress, set goals, and stay
+          motivated.
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="btn-primary">Start Tracking</a>
+          <a href="/Frontend/nav/Features.html" class="btn-secondary"
+            >Explore Features</a
+          >
         </div>
-        <div class="hero-image">
-            <img src="/Frontend/img/img1.jpg" alt="Fitness">
-        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/Frontend/img/img1.jpg" alt="Fitness" />
+      </div>
     </section>
 
     <!-- Features Section -->
     <section class="features">
-        <h2 class="section-title">Why Choose <span>FitTrack?</span></h2>
-        <p class="section-subtitle">Discover powerful features to track and improve your fitness journey.</p>
+      <h2 class="section-title">Why Choose <span>FitTrack?</span></h2>
+      <p class="section-subtitle">
+        Discover powerful features to track and improve your fitness journey.
+      </p>
 
-        <div class="features-grid">
-            <div class="feature-box" data-aos="fade-up">
-                <i class="fas fa-dumbbell"></i>
-                <h3>Personalized Workouts</h3>
-                <p>Get AI-based workout recommendations tailored to your fitness level and goals.</p>
-            </div>
-
-            <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-chart-line"></i>
-                <h3>Progress Tracking</h3>
-                <p>Monitor your progress with detailed analytics and visual graphs.</p>
-            </div>
-
-
-            <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-utensils"></i>
-                <h3>Diet & Nutrition</h3>
-                <p>Track your meals, get personalized diet plans, and count calories easily.</p>
-            </div>
-
-
-            <div class="feature-box" data-aos="fade-up" data-aos-delay="500">
-                <i class="fas fa-user-check"></i>
-                <h3>Expert Coaching</h3>
-                <p>Access workout plans from certified trainers to maximize your results.</p>
-            </div>
+      <div class="features-grid">
+        <div class="feature-box" data-aos="fade-up">
+          <i class="fas fa-dumbbell"></i>
+          <h3>Personalized Workouts</h3>
+          <p>
+            Get AI-based workout recommendations tailored to your fitness level
+            and goals.
+          </p>
         </div>
+
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-chart-line"></i>
+          <h3>Progress Tracking</h3>
+          <p>
+            Monitor your progress with detailed analytics and visual graphs.
+          </p>
+        </div>
+
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-utensils"></i>
+          <h3>Diet & Nutrition</h3>
+          <p>
+            Track your meals, get personalized diet plans, and count calories
+            easily.
+          </p>
+        </div>
+
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="500">
+          <i class="fas fa-user-check"></i>
+          <h3>Expert Coaching</h3>
+          <p>
+            Access workout plans from certified trainers to maximize your
+            results.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Interactive Demo Section -->
     <section class="interactive-demo">
-        <h2 class="section-title">See <span>FitTrack</span> in Action</h2>
-        <p class="section-subtitle">Watch how FitTrack helps you monitor and improve your fitness journey.</p>
+      <h2 class="section-title">See <span>FitTrack</span> in Action</h2>
+      <p class="section-subtitle">
+        Watch how FitTrack helps you monitor and improve your fitness journey.
+      </p>
 
-        <div class="demo-container">
-            <div class="demo-video">
-                <video id="demoVideo" src="/Frontend/video/Recording 2025-03-11 163635.mp4" muted loop></video>
-                <div class="play-overlay" onclick="togglePlayPause()">
-                    <i class="fas fa-play-circle" id="playIcon"></i>
-                </div>
-            </div>
-
-            <div class="demo-description">
-                <h3>Track Workouts in Real-Time</h3>
-                <p>Experience seamless workout tracking with our user-friendly dashboard.</p>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Live progress tracking</li>
-                    <li><i class="fas fa-check-circle"></i> AI-based workout suggestions</li>
-                    <li><i class="fas fa-check-circle"></i> Syncs with smartwatches</li>
-                </ul>
-                <a href="#" class="btn-primary">Try FitTrack Now</a>
-            </div>
+      <div class="demo-container">
+        <div class="demo-video">
+          <video
+            id="demoVideo"
+            src="/Frontend/video/Recording 2025-03-11 163635.mp4"
+            muted
+            loop
+          ></video>
+          <div class="play-overlay" onclick="togglePlayPause()">
+            <i class="fas fa-play-circle" id="playIcon"></i>
+          </div>
         </div>
+
+        <div class="demo-description">
+          <h3>Track Workouts in Real-Time</h3>
+          <p>
+            Experience seamless workout tracking with our user-friendly
+            dashboard.
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Live progress tracking</li>
+            <li>
+              <i class="fas fa-check-circle"></i> AI-based workout suggestions
+            </li>
+            <li><i class="fas fa-check-circle"></i> Syncs with smartwatches</li>
+          </ul>
+          <a href="#" class="btn-primary">Try FitTrack Now</a>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials">
-        <h2 class="section-title">What Our <span>Users Say</span></h2>
-        <p class="section-subtitle">Real feedback from people achieving their fitness goals with FitTrack.</p>
+      <h2 class="section-title">What Our <span>Users Say</span></h2>
+      <p class="section-subtitle">
+        Real feedback from people achieving their fitness goals with FitTrack.
+      </p>
 
-        <div class="testimonial-container">
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="User 1">
-                    <p>"FitTrack transformed my fitness journey! The real-time tracking and AI recommendations are
-                        amazing!"</p>
-                    <h3>- Monita Kumari</h3>
-                </div>
+      <div class="testimonial-container">
+        <div class="testimonial-slider">
+          <div class="testimonial-card">
+            <img
+              src="https://randomuser.me/api/portraits/women/1.jpg"
+              alt="User 1"
+            />
+            <p>
+              "FitTrack transformed my fitness journey! The real-time tracking
+              and AI recommendations are amazing!"
+            </p>
+            <h3>- Monita Kumari</h3>
+          </div>
 
-                <div class="testimonial-card">
-                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="User 2">
-                    <p>"I love the progress tracking feature. Seeing my improvements motivates me to keep going!"</p>
-                    <h3>- Kalu Sharma</h3>
-                </div>
+          <div class="testimonial-card">
+            <img
+              src="https://randomuser.me/api/portraits/men/2.jpg"
+              alt="User 2"
+            />
+            <p>
+              "I love the progress tracking feature. Seeing my improvements
+              motivates me to keep going!"
+            </p>
+            <h3>- Kalu Sharma</h3>
+          </div>
 
-                <div class="testimonial-card">
-                    <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User 3">
-                    <p>"This website helped me stay consistent and focused. The community challenges are super fun!"</p>
-                    <h3>- Rupali Singh</h3>
-                </div>
-            </div>
-
-            <!-- Navigation Dots -->
-            <div class="dots">
-                <span class="dot active" onclick="moveSlide(0)"></span>
-                <span class="dot" onclick="moveSlide(1)"></span>
-                <span class="dot" onclick="moveSlide(2)"></span>
-            </div>
+          <div class="testimonial-card">
+            <img
+              src="https://randomuser.me/api/portraits/women/3.jpg"
+              alt="User 3"
+            />
+            <p>
+              "This website helped me stay consistent and focused. The community
+              challenges are super fun!"
+            </p>
+            <h3>- Rupali Singh</h3>
+          </div>
         </div>
+
+        <!-- Navigation Dots -->
+        <div class="dots">
+          <span class="dot active" onclick="moveSlide(0)"></span>
+          <span class="dot" onclick="moveSlide(1)"></span>
+          <span class="dot" onclick="moveSlide(2)"></span>
+        </div>
+      </div>
     </section>
 
     <!-- Pricing Plans Section -->
     <section class="pricing">
-        <h2 class="section-title">Choose Your <span>Plan</span></h2>
-        <p class="section-subtitle">Select a plan that fits your fitness journey.</p>
+      <h2 class="section-title">Choose Your <span>Plan</span></h2>
+      <p class="section-subtitle">
+        Select a plan that fits your fitness journey.
+      </p>
 
-        <!-- Toggle Switch for Monthly/Yearly -->
-        <div class="billing-toggle">
-            <span>Monthly</span>
-            <label class="switch">
-                <input type="checkbox" id="billingToggle">
-                <span class="slider"></span>
-            </label>
-            <span>Yearly <small>(Save 20%)</small></span>
+      <!-- Toggle Switch for Monthly/Yearly -->
+      <div class="billing-toggle">
+        <span>Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="billingToggle" />
+          <span class="slider"></span>
+        </label>
+        <span>Yearly <small>(Save 20%)</small></span>
+      </div>
+
+      <div class="pricing-container">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <p class="price" data-monthly="₹0" data-yearly="₹0">$0</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Basic workout tracking</li>
+            <li><i class="fas fa-check-circle"></i> Limited analytics</li>
+            <li><i class="fas fa-check-circle"></i> Community access</li>
+          </ul>
+          <a href="#" class="btn-primary">Get Started</a>
         </div>
 
-        <div class="pricing-container">
-            <!-- Free Plan -->
-            <div class="pricing-card">
-                <h3>Free</h3>
-                <p class="price" data-monthly="₹0" data-yearly="₹0">$0</p>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Basic workout tracking</li>
-                    <li><i class="fas fa-check-circle"></i> Limited analytics</li>
-                    <li><i class="fas fa-check-circle"></i> Community access</li>
-                </ul>
-                <a href="#" class="btn-primary">Get Started</a>
-            </div>
-
-            <!-- Pro Plan -->
-            <div class="pricing-card popular">
-                <h3>Pro</h3>
-                <p class="price" data-monthly="₹1,499" data-yearly="14,999">₹1,499</p>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Advanced tracking</li>
-                    <li><i class="fas fa-check-circle"></i> AI-based workout suggestions</li>
-                    <li><i class="fas fa-check-circle"></i> Personalized meal plans</li>
-                </ul>
-                <a href="#" class="btn-primary">Upgrade to Pro</a>
-            </div>
-
-            <!-- Elite Plan -->
-            <div class="pricing-card">
-                <h3>Elite</h3>
-                <p class="price" data-monthly="₹2,499" data-yearly="₹24,999">₹2,499</p>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Live coaching sessions</li>
-                    <li><i class="fas fa-check-circle"></i> Full analytics & reports</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 support</li>
-                </ul>
-                <a href="#" class="btn-primary">Go Premium</a>
-            </div>
+        <!-- Pro Plan -->
+        <div class="pricing-card popular">
+          <h3>Pro</h3>
+          <p class="price" data-monthly="₹1,499" data-yearly="14,999">₹1,499</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Advanced tracking</li>
+            <li>
+              <i class="fas fa-check-circle"></i> AI-based workout suggestions
+            </li>
+            <li><i class="fas fa-check-circle"></i> Personalized meal plans</li>
+          </ul>
+          <a href="#" class="btn-primary">Upgrade to Pro</a>
         </div>
+
+        <!-- Elite Plan -->
+        <div class="pricing-card">
+          <h3>Elite</h3>
+          <p class="price" data-monthly="₹2,499" data-yearly="₹24,999">
+            ₹2,499
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Live coaching sessions</li>
+            <li>
+              <i class="fas fa-check-circle"></i> Full analytics & reports
+            </li>
+            <li><i class="fas fa-check-circle"></i> 24/7 support</li>
+          </ul>
+          <a href="#" class="btn-primary">Go Premium</a>
+        </div>
+      </div>
     </section>
 
     <!-- Call-to-Action Section -->
     <section class="cta">
-        <div class="cta-content">
-            <h2>Start Your Fitness Journey <span>Today!</span></h2>
-            <p>Join thousands of users tracking their progress, achieving their fitness goals, and staying motivated.
-            </p>
-            <a href="/Frontend/Auth/login.html" class="btn-primary">Get Started Now</a>
-        </div>
+      <div class="cta-content">
+        <h2>Start Your Fitness Journey <span>Today!</span></h2>
+        <p>
+          Join thousands of users tracking their progress, achieving their
+          fitness goals, and staying motivated.
+        </p>
+        <a href="/Frontend/Auth/login.html" class="btn-primary"
+          >Get Started Now</a
+        >
+      </div>
     </section>
 
     <!-- Footer Section -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <h2>FitTrack</h2>
-                <p>Your ultimate fitness companion.</p>
-            </div>
-
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="/Frontend/index.html">Home</a></li>
-                    <li><a href="/Frontend/nav/Features.html">Features</a></li>
-                    <li><a href="/Frontend/nav/Pricing .html">Pricing</a></li>
-                    <li><a href="/Frontend/nav/Contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-social">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>FitTrack</h2>
+          <p>Your ultimate fitness companion.</p>
         </div>
 
-        <p class="footer-copy">&copy; 2025 FitTrack. All Rights Reserved.</p>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/Frontend/index.html">Home</a></li>
+            <li><a href="/Frontend/nav/Features.html">Features</a></li>
+            <li><a href="/Frontend/nav/Pricing .html">Pricing</a></li>
+            <li><a href="/Frontend/nav/Contact.html">Contact</a></li>
+          </ul>
+        </div>
 
-        <!-- Back to Top Button -->
-        <button class="back-to-top" onclick="scrollToTop()">
-            <i class="fas fa-arrow-up"></i>
-        </button>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer-copy">&copy; 2025 FitTrack. All Rights Reserved.</p>
+
+      <!-- Back to Top Button -->
+      <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+      </button>
     </footer>
 
-</body>
+    <script>
+        const getStartedButton = document.querySelector('.get-started')
+        const nameButton = document.querySelector('.name-btn')
+        const logoutButton = document.querySelector('.logout-btn')
 
+        if(localStorage.getItem('isLogin') == "true") {
+            getStartedButton.style.display = 'none'
+            nameButton.innerHTML = localStorage.getItem('name')
+        } else {
+            nameButton.style.display = 'none'
+            logoutButton.style.display = 'none'
+        }
+
+        logoutButton.addEventListener('click', () => {
+            localStorage.setItem('isLogin', false)
+            window.location.href = '/Frontend/index.html'
+        })
+    </script>
+  </body>
 </html>
