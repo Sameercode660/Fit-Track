@@ -14,11 +14,56 @@ datasource db {
 }
 
 model User {
-  id String @id @default(cuid())
-  fullName String 
-  email String @unique
-  password String
-  otp String?
-  createdAt DateTime @default(now())
+  id        String     @id @default(cuid())
+  fullName  String
+  email     String     @unique
+  password  String
+  otp       String?
+  createdAt DateTime   @default(now())
+  Weight    Weight[]
+  Activity  Activity[]
+  Calorie   Calorie[]
+  Sleep     Sleep[]
+  Water     Water[]
 }
 
+model Weight {
+  id     String   @id @default(cuid())
+  weight Float
+  date   DateTime
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+}
+
+model Activity {
+  id       String   @id @default(cuid())
+  name     String
+  date     DateTime
+  userId   String
+  user     User     @relation(fields: [userId], references: [id])
+}
+
+model Calorie {
+  id       String   @id @default(cuid())
+  name     String
+  calories Float
+  date     DateTime
+  userId   String
+  user     User     @relation(fields: [userId], references: [id])
+}
+
+model Sleep {
+  id     String   @id @default(cuid())
+  hours  Float
+  date   DateTime
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+}
+
+model Water {
+  id     String   @id @default(cuid())
+  amount Float
+  date   DateTime
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+}

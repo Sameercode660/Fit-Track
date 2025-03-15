@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .tracker-container {
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: glow 2s infinite alternate;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #00d4ff;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        input {
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid #444;
+            border-radius: 8px;
+            background: #2a2a2a;
+            color: #e0e0e0;
+            outline: none;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        input:focus {
+            border-color: #00d4ff;
+            transform: scale(1.02);
+        }
+
+        button {
+            padding: 12px;
+            background: linear-gradient(45deg, #00d4ff, #007bff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff; }
+            to { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; }
+        }
+    </style>
+</head>
+<body>
+    <div class="tracker-container">
+        <h1>Water Tracker</h1>
+        <div class="form-group">
+            <label for="amount">Amount (ml):</label>
+            <input type="number" id="amount" required>
+        </div>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="datetime-local" id="date" required>
+        </div>
+        <button id="submitWater">Add Water</button>
+    </div>
+
+    <script>
+        document.getElementById('submitWater').addEventListener('click', async () => {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const date = new Date(document.getElementById('date').value).toISOString();
+            const userId = localStorage.getItem('id');
+
+            if (!amount || !date || !userId) {
+                alert('Please fill in all required fields and ensure you are logged in.');
+                return;
+            }
+
+            try {
+                const response = await axios.post('http://localhost:3000/api/features/water', {
+                    amount,
+                    date,
+                    userId
+                });
+                alert(response.data.message);
+            } catch (error) {
+                alert(error.response?.data?.message || 'Error adding water');
+            }
+        });
+    </script>
+</body>
+</html>

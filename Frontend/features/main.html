@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Tracker Dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #2c3e50;
+      }
+
+      .tracker-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .option-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .option-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .option-card h2 {
+        font-size: 1.5rem;
+        color: #2980b9;
+        margin-bottom: 10px;
+      }
+
+      .option-card p {
+        font-size: 1rem;
+        color: #7f8c8d;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        .tracker-options {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Health Tracker</h1>
+      <div class="tracker-options">
+        <div class="option-card" data-tracker="weight">
+          <h2>Weight</h2>
+          <p>Track your weight over time.</p>
+        </div>
+        <div class="option-card" data-tracker="activity">
+          <h2>Activity</h2>
+          <p>Log your exercises and steps.</p>
+        </div>
+        <div class="option-card" data-tracker="calorie">
+          <h2>Food/Calorie</h2>
+          <p>Monitor your daily calorie intake.</p>
+        </div>
+        <div class="option-card" data-tracker="water">
+          <h2>Water</h2>
+          <p>Keep track of your water consumption.</p>
+        </div>
+        <div class="option-card" data-tracker="sleep">
+          <h2>Sleep</h2>
+          <p>Record your sleep hours.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".option-card");
+
+        cards.forEach((card) => {
+          card.addEventListener("click", () => {
+            const trackerType = card.getAttribute("data-tracker");
+            // Navigate to the corresponding tracker page
+            window.location.href = `${trackerType}.html`;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
