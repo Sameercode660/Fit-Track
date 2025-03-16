@@ -46,7 +46,7 @@
           motivated.
         </p>
         <div class="hero-buttons">
-          <a href="#" class="btn-primary">Start Tracking</a>
+          <a href="/Frontend/features/main.html" class="btn-primary">Start Tracking</a>
           <a href="/Frontend/nav/Features.html" class="btn-secondary"
             >Explore Features</a
           >
@@ -135,7 +135,7 @@
             </li>
             <li><i class="fas fa-check-circle"></i> Syncs with smartwatches</li>
           </ul>
-          <a href="#" class="btn-primary">Try FitTrack Now</a>
+          <a href="/Frontend/Auth/login.html" class="btn-primary">Try FitTrack Now</a>
         </div>
       </div>
     </section>
@@ -265,7 +265,7 @@
           Join thousands of users tracking their progress, achieving their
           fitness goals, and staying motivated.
         </p>
-        <a href="/Frontend/Auth/login.html" class="btn-primary"
+        <a href="/Frontend/features/main.html" class="btn-primary"
           >Get Started Now</a
         >
       </div>
@@ -312,6 +312,10 @@
         const getStartedButton = document.querySelector('.get-started')
         const nameButton = document.querySelector('.name-btn')
         const logoutButton = document.querySelector('.logout-btn')
+
+        nameButton.addEventListener('click', () => {
+            window.location.href = '/Frontend/features/analytics.html'
+        })
 
         if(localStorage.getItem('isLogin') == "true") {
             getStartedButton.style.display = 'none'

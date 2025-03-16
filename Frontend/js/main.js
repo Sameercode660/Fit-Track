@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const heroButtons = document.querySelectorAll(".btn-primary, .btn-secondary");
 
-    heroButtons.forEach(button => {
-        button.addEventListener("click", (e) => {
-            e.preventDefault();
-            alert("Feature coming soon!");
-        });
-    });
+    // heroButtons.forEach(button => {
+    //     button.addEventListener("click", (e) => {
+    //         e.preventDefault();
+    //         alert("Feature coming soon!");
+    //     });
+    // });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

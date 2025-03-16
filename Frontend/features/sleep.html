@@ -119,6 +119,9 @@
     </div>
 
     <script>
+
+        const button = document.getElementById('submitSleep');
+
         document.getElementById('submitSleep').addEventListener('click', async () => {
             const hours = parseFloat(document.getElementById('hours').value);
             const date = new Date(document.getElementById('date').value).toISOString();
@@ -130,14 +133,19 @@
             }
 
             try {
+                button.innerHTML = 'Adding...';
                 const response = await axios.post('http://localhost:3000/api/features/sleep', {
                     hours,
                     date,
                     userId
                 });
+
+                button.innerHTML = 'Add Sleep';
                 alert(response.data.message);
             } catch (error) {
                 alert(error.response?.data?.message || 'Error adding sleep');
+            } finally {
+                button.innerHTML = 'Add Sleep';
             }
         });
     </script>

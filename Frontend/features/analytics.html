@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .analytics-container {
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: glow 2s infinite alternate;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            background: #2a2a2a;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        li:hover {
+            transform: translateX(5px);
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+
+        button {
+            padding: 12px;
+            background: linear-gradient(45deg, #00d4ff, #007bff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff; }
+            to { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; }
+        }
+    </style>
+</head>
+<body>
+    <div class="analytics-container">
+        <h1>Health Analytics</h1>
+        <div class="section" id="weightSection">
+            <h2>Weight</h2>
+            <p class="summary" id="weightSummary"></p>
+            <ul id="weightList"></ul>
+        </div>
+        <div class="section" id="activitySection">
+            <h2>Activity</h2>
+            <p class="summary" id="activitySummary"></p>
+            <ul id="activityList"></ul>
+        </div>
+        <div class="section" id="calorieSection">
+            <h2>Calorie</h2>
+            <p class="summary" id="calorieSummary"></p>
+            <ul id="calorieList"></ul>
+        </div>
+        <div class="section" id="sleepSection">
+            <h2>Sleep</h2>
+            <p class="summary" id="sleepSummary"></p>
+            <ul id="sleepList"></ul>
+        </div>
+        <div class="section" id="waterSection">
+            <h2>Water</h2>
+            <p class="summary" id="waterSummary"></p>
+            <ul id="waterList"></ul>
+        </div>
+        <button id="fetchAnalytics">Refresh Analytics</button>
+    </div>
+
+    <script>
+
+        const button = document.getElementById('fetchAnalytics')
+
+        async function fetchAnalytics() {
+            const userId = localStorage.getItem('id');
+            if (!userId) {
+                alert('Please log in to view analytics.');
+                return;
+            }
+
+            try {
+
+                button.innerHTML = 'Loading...'
+                const response = await axios.post('http://localhost:3000/api/features/analytics', {
+                    userId
+                });
+
+                button.innerHTML = 'Refresh Analytics'
+                const { data } = response.data;
+
+                // Weight Analytics
+                const weightList = document.getElementById('weightList');
+                const weightSummary = document.getElementById('weightSummary');
+                weightList.innerHTML = data.weight.slice(-5).map(w => `<li>${w.weight} kg - ${new Date(w.date).toLocaleString()}</li>`).join('');
+                const avgWeight = data.weight.length ? (data.weight.reduce((sum, w) => sum + w.weight, 0) / data.weight.length).toFixed(2) : 'N/A';
+                weightSummary.textContent = `Average Weight: ${avgWeight} kg | Total Entries: ${data.weight.length}`;
+
+                // Activity Analytics
+                const activityList = document.getElementById('activityList');
+                const activitySummary = document.getElementById('activitySummary');
+                activityList.innerHTML = data.activity.slice(-5).map(a => `<li>${a.name} - ${new Date(a.date).toLocaleString()}</li>`).join('');
+                activitySummary.textContent = `Total Activities: ${data.activity.length}`;
+
+                // Calorie Analytics
+                const calorieList = document.getElementById('calorieList');
+                const calorieSummary = document.getElementById('calorieSummary');
+                calorieList.innerHTML = data.calorie.slice(-5).map(c => `<li>${c.name}: ${c.calories} kcal - ${new Date(c.date).toLocaleString()}</li>`).join('');
+                const totalCalories = data.calorie.reduce((sum, c) => sum + c.calories, 0);
+                calorieSummary.textContent = `Total Calories: ${totalCalories} kcal | Entries: ${data.calorie.length}`;
+
+                // Sleep Analytics
+                const sleepList = document.getElementById('sleepList');
+                const sleepSummary = document.getElementById('sleepSummary');
+                sleepList.innerHTML = data.sleep.slice(-5).map(s => `<li>${s.hours} hours - ${new Date(s.date).toLocaleString()}</li>`).join('');
+                const avgSleep = data.sleep.length ? (data.sleep.reduce((sum, s) => sum + s.hours, 0) / data.sleep.length).toFixed(2) : 'N/A';
+                sleepSummary.textContent = `Average Sleep: ${avgSleep} hours | Total Entries: ${data.sleep.length}`;
+
+                // Water Analytics
+                const waterList = document.getElementById('waterList');
+                const waterSummary = document.getElementById('waterSummary');
+                waterList.innerHTML = data.water.slice(-5).map(w => `<li>${w.amount} ml - ${new Date(w.date).toLocaleString()}</li>`).join('');
+                const totalWater = data.water.reduce((sum, w) => sum + w.amount, 0);
+                waterSummary.textContent = `Total Water: ${totalWater} ml | Entries: ${data.water.length}`;
+            } catch (error) {
+                alert(error.response?.data?.message || 'Error fetching analytics');
+            } finally {
+                button.innerHTML = 'Refresh Analytics'
+            }   
+        }
+
+        // Fetch analytics on page load and on button click
+        document.addEventListener('DOMContentLoaded', fetchAnalytics);
+        document.getElementById('fetchAnalytics').addEventListener('click', fetchAnalytics);
+    </script>
+</body>
+</html>

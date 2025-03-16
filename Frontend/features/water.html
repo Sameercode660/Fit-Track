@@ -119,6 +119,9 @@
     </div>
 
     <script>
+
+        const button = document.getElementById('submitWater');
+
         document.getElementById('submitWater').addEventListener('click', async () => {
             const amount = parseFloat(document.getElementById('amount').value);
             const date = new Date(document.getElementById('date').value).toISOString();
@@ -130,11 +133,13 @@
             }
 
             try {
+                button.innerHTML = 'Adding...';
                 const response = await axios.post('http://localhost:3000/api/features/water', {
                     amount,
                     date,
                     userId
                 });
+                button.innerHTML = 'Add Water';
                 alert(response.data.message);
             } catch (error) {
                 alert(error.response?.data?.message || 'Error adding water');

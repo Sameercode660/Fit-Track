@@ -123,27 +123,35 @@
     </div>
 
     <script>
+
+        const button = document.getElementById('submitCalorie');
+
         document.getElementById('submitCalorie').addEventListener('click', async () => {
             const name = document.getElementById('name').value;
             const calories = parseFloat(document.getElementById('calories').value);
             const date = new Date(document.getElementById('date').value).toISOString();
             const userId = localStorage.getItem('id');
 
+            
             if (!name || !calories || !date || !userId) {
                 alert('Please fill in all required fields and ensure you are logged in.');
                 return;
             }
 
             try {
+                button.innerHTML = 'Adding...'
                 const response = await axios.post('http://localhost:3000/api/features/calorie', {
                     name,
                     calories,
                     date,
                     userId
                 });
+                button.innerHTML = 'Add Calorie'
                 alert(response.data.message);
             } catch (error) {
                 alert(error.response?.data?.message || 'Error adding calorie');
+            } finally {
+                button.innerHTML = 'Add Calorie'
             }
         });
     </script>

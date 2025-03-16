@@ -6,6 +6,11 @@
     <title>FitTrack - Login</title>
     <link rel="stylesheet" href="/Frontend/css/login.css" />
     <script defer src="/Frontend/js/login.js"></script>
+    <script>
+      if (localStorage.getItem("isLogin") === "true") {
+        window.location.href = "/Frontend/features/main.html";
+      }
+    </script>
   </head>
   <body>
     <div class="login-container">

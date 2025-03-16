@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Health Tracker Dashboard</title>
+    <script>
+      if(localStorage.getItem("isLogin") !== "true") {
+        alert("please login first")
+        window.location.href = "/Frontend/Auth/login.html"
+      }
+    </script>
     <style>
       * {
         margin: 0;
